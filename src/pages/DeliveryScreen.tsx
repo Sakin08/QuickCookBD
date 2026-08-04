@@ -5,18 +5,18 @@ interface DeliveryScreenProps {
 
 export function DeliveryScreen({ onContinue, onBack }: DeliveryScreenProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <button
           onClick={onBack}
-          className="mb-8 px-5 py-2.5 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2"
+          className="mb-6 px-5 py-2.5 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2"
         >
           <span>←</span> <span>Back</span>
         </button>
 
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-10 border border-white/40">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-black mb-3">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/40">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl md:text-4xl font-black mb-2">
               <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 📍 Delivery
               </span>{" "}
@@ -24,40 +24,40 @@ export function DeliveryScreen({ onContinue, onBack }: DeliveryScreenProps) {
                 Information
               </span>
             </h2>
-            <p className="text-gray-600 text-lg">Enter your delivery details</p>
+            <p className="text-gray-600">Enter your delivery details</p>
           </div>
 
-          <div className="space-y-5 mb-8">
+          <div className="space-y-4 mb-6">
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">
                 Full Name *
               </label>
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all text-lg"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">
                 Phone Number *
               </label>
               <input
                 type="tel"
                 placeholder="+880 1XXX-XXXXXX"
-                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all text-lg"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">
                 Complete Address *
               </label>
               <textarea
                 placeholder="House/Flat, Road, Area"
-                rows={4}
-                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all text-lg resize-none"
+                rows={3}
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all resize-none"
               />
             </div>
 

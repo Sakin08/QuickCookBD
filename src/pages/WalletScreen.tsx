@@ -19,18 +19,18 @@ export function WalletScreen({
   const remaining = useWallet ? Math.max(0, total - balance) : total;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <button
           onClick={onBack}
-          className="mb-8 px-5 py-2.5 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2"
+          className="mb-4 px-5 py-2.5 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2"
         >
           <span>←</span> <span>Back</span>
         </button>
 
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-10 border border-white/40">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-black mb-3">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/40">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl md:text-4xl font-black mb-2">
               <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 💰 QuickCook
               </span>{" "}
@@ -38,38 +38,38 @@ export function WalletScreen({
                 Wallet
               </span>
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-base">
               Manage your wallet balance and payment
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-pink-500 rounded-3xl p-8 text-white mb-8 shadow-2xl">
-            <div className="flex justify-between items-center mb-6">
+          <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-pink-500 rounded-3xl p-6 text-white mb-6 shadow-2xl">
+            <div className="flex justify-between items-center mb-4">
               <div>
-                <div className="text-sm opacity-90 mb-1 font-semibold">
+                <div className="text-xs opacity-90 mb-1 font-semibold">
                   Available Balance
                 </div>
-                <div className="text-5xl font-black">
+                <div className="text-4xl font-black">
                   ৳{balance.toLocaleString()}
                 </div>
               </div>
-              <div className="text-7xl">💳</div>
+              <div className="text-6xl">💳</div>
             </div>
-            <div className="grid grid-cols-3 gap-3">
-              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-3 font-bold transition-all hover:scale-105">
+            <div className="grid grid-cols-3 gap-2">
+              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-2 font-bold transition-all hover:scale-105 text-sm">
                 + Add Money
               </button>
-              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-3 font-bold transition-all hover:scale-105">
+              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-2 font-bold transition-all hover:scale-105 text-sm">
                 Transactions
               </button>
-              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-3 font-bold transition-all hover:scale-105">
+              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-2 font-bold transition-all hover:scale-105 text-sm">
                 Rewards
               </button>
             </div>
           </div>
 
-          <div className="mb-8">
-            <label className="flex items-center gap-4 p-6 border-2 border-gray-200 rounded-2xl hover:border-orange-500 cursor-pointer transition-all hover:shadow-lg bg-gradient-to-br from-white to-gray-50">
+          <div className="mb-6">
+            <label className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-2xl hover:border-orange-500 cursor-pointer transition-all hover:shadow-lg bg-gradient-to-br from-white to-gray-50">
               <input
                 type="checkbox"
                 checked={useWallet}
@@ -77,7 +77,7 @@ export function WalletScreen({
                 className="w-6 h-6 text-orange-600 rounded-lg focus:ring-2 focus:ring-orange-500"
               />
               <div className="flex-1">
-                <div className="font-bold text-gray-900 mb-1 text-lg">
+                <div className="font-bold text-gray-900 mb-1 text-base">
                   Use Wallet Balance
                 </div>
                 <div className="text-sm text-gray-600">

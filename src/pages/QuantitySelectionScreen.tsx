@@ -43,8 +43,8 @@ export function QuantitySelectionScreen({
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-12">
-      <div className="max-w-5xl mx-auto px-4">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-orange-50 flex items-center">
+      <div className="max-w-5xl mx-auto px-4 w-full">
         <button
           onClick={onBack}
           className="mb-8 px-5 py-2.5 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2"

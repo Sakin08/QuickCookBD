@@ -4,7 +4,7 @@ interface HomeScreenProps {
 
 export function HomeScreen({ onBrowse }: HomeScreenProps) {
   return (
-    <div className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-gradient-to-br from-orange-50 via-white to-pink-50">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-orange-50 via-white to-pink-50">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(251,146,60,0.1),transparent_50%)]" />
@@ -34,11 +34,11 @@ export function HomeScreen({ onBrowse }: HomeScreenProps) {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center space-y-10">
+        <div className="text-center space-y-12">
           {/* Hero Section */}
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-8 animate-fade-in">
             <div className="inline-block">
-              <span className="bg-gradient-to-r from-orange-500 to-pink-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg">
+              <span className="bg-gradient-to-r from-orange-500 to-pink-500 text-white text-base font-bold px-8 py-3 rounded-full shadow-lg">
                 🎉 Now Serving in Dhaka
               </span>
             </div>
@@ -51,56 +51,56 @@ export function HomeScreen({ onBrowse }: HomeScreenProps) {
                 Bengali Meals
               </span>
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-gray-700">
+            <p className="text-3xl md:text-4xl font-bold text-gray-700">
               Ready in{" "}
               <span className="text-orange-500 underline decoration-wavy">
                 20 Minutes
               </span>{" "}
               ⚡
             </p>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Pre-cut ingredients, pre-marinated perfection. Experience
               restaurant-quality Bengali cuisine at home.
             </p>
           </div>
 
           {/* Value Propositions */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 animate-fade-in-delayed">
-            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-6 py-6 rounded-3xl hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 animate-fade-in-delayed">
+            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-8 py-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
                 🥘
               </div>
-              <p className="font-bold text-gray-800 text-sm">
+              <p className="font-bold text-gray-800 text-base">
                 Pre-cut
                 <br />
                 Ingredients
               </p>
             </div>
-            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-6 py-6 rounded-3xl hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-8 py-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
                 ⚡
               </div>
-              <p className="font-bold text-gray-800 text-sm">
+              <p className="font-bold text-gray-800 text-base">
                 20-Min
                 <br />
                 Cooking
               </p>
             </div>
-            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-6 py-6 rounded-3xl hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-8 py-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
                 🚚
               </div>
-              <p className="font-bold text-gray-800 text-sm">
+              <p className="font-bold text-gray-800 text-base">
                 Same Day
                 <br />
                 Delivery
               </p>
             </div>
-            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-6 py-6 rounded-3xl hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg px-8 py-8 rounded-3xl hover:scale-105 transition-all duration-300 group">
+              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
                 ✨
               </div>
-              <p className="font-bold text-gray-800 text-sm">
+              <p className="font-bold text-gray-800 text-base">
                 Restaurant
                 <br />
                 Quality
@@ -112,7 +112,7 @@ export function HomeScreen({ onBrowse }: HomeScreenProps) {
           <div className="animate-fade-in-delayed">
             <button
               onClick={onBrowse}
-              className="group relative bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 text-white px-14 py-6 rounded-2xl text-xl font-black shadow-2xl hover:shadow-orange-300/50 hover:scale-105 transition-all duration-300 border-4 border-white/20"
+              className="group relative bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 text-white px-16 py-7 rounded-2xl text-2xl font-black shadow-2xl hover:shadow-orange-300/50 hover:scale-105 transition-all duration-300 border-4 border-white/20"
             >
               <span className="flex items-center gap-3">
                 <span>🛒</span>
@@ -126,9 +126,9 @@ export function HomeScreen({ onBrowse }: HomeScreenProps) {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 animate-fade-in-delayed">
-            <div className="bg-white/60 backdrop-blur-xl border border-white/40 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="text-4xl font-black bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-20 animate-fade-in-delayed">
+            <div className="bg-white/60 backdrop-blur-xl border border-white/40 p-10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-5xl font-black bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
                 2,500+
               </div>
               <div className="text-sm font-semibold text-gray-600 mt-2">

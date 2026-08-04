@@ -21,9 +21,11 @@ import { CartScreen } from "./pages/CartScreen";
 import { WalletScreen } from "./pages/WalletScreen";
 import { DeliveryScreen } from "./pages/DeliveryScreen";
 import { LoginScreen } from "./pages/LoginScreen";
+import { AdminDashboard } from "./pages/AdminDashboard";
+import { OrderTrackingScreen } from "./pages/OrderTrackingScreen";
 import { generateOrderNumber, calculateMealPrice } from "./utils/pricing";
 
-import bkashLogo from "./assets/bkash logo.jpeg";
+import bkashLogo from "./assets/bkashpng.webp";
 import nagadLogo from "./assets/nagad logo.png";
 
 export default function OrderingSystem() {
@@ -244,13 +246,21 @@ export default function OrderingSystem() {
             setCurrentScreen("home");
           }}
           onBack={() => setCurrentScreen("home")}
+          onOrderTracking={() => setCurrentScreen("orderTracking")}
+          onManageSubscription={() => setCurrentScreen("manageSubscription")}
         />
       )}
 
+      {currentScreen === "adminDashboard" && (
+        <AdminDashboard onBack={() => setCurrentScreen("home")} />
+      )}
+
+      {currentScreen === "orderTracking" && (
+        <OrderTrackingScreen onBack={() => setCurrentScreen("home")} />
+      )}
+
       {(currentScreen === "manageSubscription" ||
-        currentScreen === "orderTracking" ||
-        currentScreen === "rateOrder" ||
-        currentScreen === "adminDashboard") && (
+        currentScreen === "rateOrder") && (
         <GenericPlaceholder
           title={currentScreen}
           onBack={() => setCurrentScreen("home")}
@@ -340,6 +350,26 @@ function PaymentPlaceholder({
 
             <label
               className={`flex items-center gap-4 p-6 rounded-2xl border-2 cursor-pointer transition-all ${
+                selectedPayment === "card"
+                  ? "border-orange-500 bg-gradient-to-br from-orange-50 to-pink-50 shadow-lg"
+                  : "border-gray-200 hover:border-orange-300 bg-white"
+              }`}
+            >
+              <input
+                type="radio"
+                name="payment"
+                checked={selectedPayment === "card"}
+                onChange={() => setSelectedPayment("card")}
+                className="w-6 h-6 text-orange-600"
+              />
+              <div className="text-4xl">💳</div>
+              <span className="font-bold text-gray-900 text-lg">
+                Credit/Debit Card
+              </span>
+            </label>
+
+            <label
+              className={`flex items-center gap-4 p-6 rounded-2xl border-2 cursor-pointer transition-all ${
                 selectedPayment === "cash"
                   ? "border-orange-500 bg-gradient-to-br from-orange-50 to-pink-50 shadow-lg"
                   : "border-gray-200 hover:border-orange-300 bg-white"
@@ -385,33 +415,66 @@ function ConfirmationPlaceholder({
   orderId: string;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-12 flex items-center justify-center">
-      <div className="max-w-2xl mx-auto px-4">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-12 text-center border border-white/40">
-          <div className="text-8xl mb-6 animate-bounce">✅</div>
-          <h2 className="text-5xl font-black mb-4">
-            <span className="bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">
-              Order Confirmed!
-            </span>
-          </h2>
-          <p className="text-2xl text-gray-600 mb-3">
-            Thank you for your order
-          </p>
-          <p className="text-lg text-gray-500 mb-8">
-            Order Number:{" "}
-            <span className="font-bold text-orange-600">{orderId}</span>
-          </p>
-          <button
-            onClick={onBackHome}
-            className="group bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 text-white px-10 py-4 rounded-2xl text-xl font-black shadow-2xl hover:shadow-orange-300/50 hover:scale-105 transition-all duration-300"
-          >
-            <span className="flex items-center gap-2">
-              <span>Back to Home</span>
-              <span className="group-hover:translate-x-1 transition-transform">
-                →
+    <div className="h-screen w-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 flex items-center justify-center relative overflow-hidden">
+      {/* Celebration Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[8%] left-[8%] text-2xl md:text-4xl lg:text-5xl animate-bounce">
+          🎉
+        </div>
+        <div className="absolute top-[15%] right-[10%] text-xl md:text-3xl lg:text-4xl animate-bounce delay-100">
+          🎊
+        </div>
+        <div className="absolute bottom-[25%] left-[8%] text-2xl md:text-4xl lg:text-5xl animate-bounce delay-200">
+          ✨
+        </div>
+        <div className="absolute bottom-[8%] right-[8%] text-xl md:text-3xl lg:text-4xl animate-bounce delay-300">
+          🎈
+        </div>
+        <div className="absolute top-1/2 left-1/4 text-lg md:text-2xl lg:text-3xl animate-bounce">
+          ⭐
+        </div>
+        <div className="absolute top-1/3 right-1/3 text-xl md:text-3xl lg:text-4xl animate-bounce delay-100">
+          🌟
+        </div>
+      </div>
+
+      <div className="w-full h-full flex items-center justify-center p-4">
+        <div className="max-w-2xl w-full relative z-10">
+          <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 md:p-8 text-center border-4 border-green-200 max-h-[85vh] overflow-y-auto">
+            <div className="text-3xl md:text-5xl lg:text-6xl mb-4 animate-bounce inline-block">
+              ✅
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-3">
+              <span className="bg-gradient-to-r from-green-600 via-emerald-500 to-green-600 bg-clip-text text-transparent">
+                Order Confirmed!
               </span>
-            </span>
-          </button>
+            </h2>
+            <p className="text-base md:text-lg lg:text-xl text-gray-700 font-bold mb-3">
+              🎉 Thank you for your order!
+            </p>
+            <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-2xl p-4 mb-4 border-2 border-orange-200">
+              <p className="text-sm md:text-base text-gray-600 mb-1">
+                Your Order Number
+              </p>
+              <p className="text-lg md:text-xl lg:text-2xl font-black text-orange-600">
+                {orderId}
+              </p>
+            </div>
+            <p className="text-sm md:text-base text-gray-600 mb-6">
+              We'll start preparing your meal kit right away! 🍳
+            </p>
+            <button
+              onClick={onBackHome}
+              className="group bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 text-white px-8 py-3 md:py-4 rounded-2xl text-sm md:text-base lg:text-lg font-black shadow-2xl hover:shadow-orange-300/50 hover:scale-105 transition-all duration-300 border-4 border-white/30 w-full"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <span>Back to Home</span>
+                <span className="group-hover:translate-x-1 transition-transform text-base md:text-lg">
+                  →
+                </span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -422,48 +485,74 @@ function ProfilePlaceholder({
   user,
   onLogout,
   onBack,
+  onOrderTracking,
+  onManageSubscription,
 }: {
   user: User;
   onLogout: () => void;
   onBack: () => void;
+  onOrderTracking: () => void;
+  onManageSubscription: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-orange-50 flex items-center">
+      <div className="max-w-3xl mx-auto px-4 w-full">
         <button
           onClick={onBack}
-          className="mb-8 px-5 py-2.5 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2"
+          className="mb-4 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all font-semibold text-gray-700 border border-gray-200 hover:border-orange-300 flex items-center gap-2 text-sm"
         >
           <span>←</span> <span>Back</span>
         </button>
 
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-10 border border-white/40">
-          <div className="flex items-center gap-6 mb-8">
-            <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl flex items-center justify-center text-white text-4xl font-black">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/40">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-white text-3xl font-black">
               {user.name.charAt(0)}
             </div>
             <div>
-              <h2 className="text-3xl font-black text-gray-900 mb-1">
+              <h2 className="text-2xl font-black text-gray-900 mb-1">
                 {user.name}
               </h2>
-              <p className="text-gray-600">{user.email}</p>
+              <p className="text-gray-600 text-sm">{user.email}</p>
             </div>
           </div>
 
-          <div className="space-y-4 mb-8">
-            <div className="p-4 bg-gray-50 rounded-xl">
-              <div className="text-sm text-gray-600 mb-1">Phone</div>
-              <div className="font-semibold text-gray-900">{user.phone}</div>
+          <div className="space-y-3 mb-6">
+            <div className="p-3 bg-gray-50 rounded-xl">
+              <div className="text-xs text-gray-600 mb-0.5">Phone</div>
+              <div className="font-semibold text-gray-900 text-sm">
+                {user.phone}
+              </div>
             </div>
-            <div className="p-4 bg-gray-50 rounded-xl">
-              <div className="text-sm text-gray-600 mb-1">Address</div>
-              <div className="font-semibold text-gray-900">{user.address}</div>
+            <div className="p-3 bg-gray-50 rounded-xl">
+              <div className="text-xs text-gray-600 mb-0.5">Address</div>
+              <div className="font-semibold text-gray-900 text-sm">
+                {user.address}
+              </div>
             </div>
+          </div>
+
+          {/* Quick Actions */}
+          <div className="grid md:grid-cols-2 gap-3 mb-4">
+            <button
+              onClick={onOrderTracking}
+              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2 text-sm"
+            >
+              <span>📦</span>
+              <span>Track Orders</span>
+            </button>
+            <button
+              onClick={onManageSubscription}
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2 text-sm"
+            >
+              <span>🔄</span>
+              <span>Manage Subscription</span>
+            </button>
           </div>
 
           <button
             onClick={onLogout}
-            className="w-full bg-red-500 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:bg-red-600 shadow-lg hover:shadow-xl transition-all"
+            className="w-full bg-red-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-600 shadow-lg hover:shadow-xl transition-all"
           >
             Logout
           </button>
